@@ -1,0 +1,10 @@
+﻿{
+  "profile": "deploy-lambda-profile",
+  "region" : "eu-west-1",
+  "configuration" : "Release",
+  "framework" : "netcoreapp2.0",
+  "function-runtime":"dotnetcore2.0",
+  "function-memory-size" : 512,
+  "function-timeout" : 300,
+  "function-handler" : "SendEmailWithAttachmentFromS3::SendEmailWithAttachmentFromS3.Function::FunctionHandler"
+}
