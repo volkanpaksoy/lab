@@ -19,8 +19,8 @@ namespace SendEmailWithAttachmentFromS3
     public class RawEmailService : IEmailService
     {
         private static readonly string subject = "RE: CV Request - Volkan Paksoy";
-        private static readonly string htmlBody = "<h2>Hello {0},</h2><p>Please find attached my latest CV. Thanks for your interest.</p><p>Kind regards,</p><p>Volkan</p>";
-        private static readonly string textBody = "Hello {0},\r\nPlease find attached my latest CV.\r\n\r\nKind regards,\r\nVolkan";
+        private static readonly string htmlBody = "<p>Hello,</p><p>Please find attached my latest CV. Thanks for your interest.</p><p>Kind regards,</p><p>Volkan</p>";
+        private static readonly string textBody = "Hello,\r\nPlease find attached my latest CV.\r\n\r\nKind regards,\r\nVolkan";
 
         private readonly ILambdaContext context;
 
