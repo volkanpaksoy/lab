@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="EmailService.cs">
     <Files>
-      <File FileName="Function.cs" Line="24" Column="144" />
-      <File FileName="EmailService.cs" Line="35" Column="110" />
-      <File FileName="aws-lambda-tools-defaults.json" Line="1" Column="2" />
-      <File FileName="S3Service.cs" Line="42" Column="18" />
+      <File FileName="Function.cs" Line="32" Column="13" />
+      <File FileName="EmailService.cs" Line="67" Column="14" />
+      <File FileName="aws-lambda-tools-defaults.json" Line="9" Column="112" />
+      <File FileName="S3Service.cs" Line="35" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
