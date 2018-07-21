@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{F0A3ADDB-56BC-4F24-B6FD-326963032C25}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="S3Service.cs">
+    <Files>
+      <File FileName="S3Service.cs" Line="35" Column="97" />
+      <File FileName="Program.cs" Line="12" Column="16" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.VerifyingDataIntegrityWithAWSS3 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
