@@ -1,7 +1,7 @@
-# Send Email With Attachment From S3
+# Verifying Data Integrity with AWS S3
 
-A Lambda function that downloads a file from S3 and sends it as an email attachment via SES.
+Sample project that uploads and downloads files to S3 with MD5 hash verification.
 
 Developed in C# .NET Core 2.0
 
-The related blog post can be found here: [Automated Email Processing with AWS SES and Lambda](http://volkanpaksoy.com/archive/2018/06/26/Automated-Email-Processing-with-AWS-SES-and-Lambda/)
+The related blog post can be found here: [Verifying Data Integrity with AWS S3](http://volkanpaksoy.com/archive/2018/07/20/Verifying-Data-Integrity-with-AWS-S3/)
