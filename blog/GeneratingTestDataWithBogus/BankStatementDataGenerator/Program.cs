@@ -12,7 +12,6 @@ namespace BankStatementDataGenerator
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             var statementconfig = new
@@ -20,10 +19,12 @@ namespace BankStatementDataGenerator
                 StartDate = DateTime.ParseExact("20190601", "yyyyMMdd", CultureInfo.InvariantCulture),
                 EndDate = DateTime.ParseExact("20190630", "yyyyMMdd", CultureInfo.InvariantCulture),
                 OpeningBalance = 500.00m,
-                DebitTransactionRatio = 0.9f
+                DebitTransactionRatio = 0.9f,
+                TransactionDateInterval = 3
             };
             
             var balance = statementconfig.OpeningBalance;
+            var lastDate = statementconfig.StartDate;
 
             var commonFields = new Faker<BankStatementLine>()
                 .RuleFor(x => x.AccountNumber, f => f.Finance.Account())
@@ -31,7 +32,15 @@ namespace BankStatementDataGenerator
                 .Generate();
 
             var fakeTransactions = new Faker<BankStatementLine>()
-                .RuleFor(x => x.TransactionDate, f => f.Date.Between(statementconfig.StartDate, statementconfig.EndDate))
+                .RuleFor(x => x.TransactionDate, f =>
+                {
+                    lastDate = lastDate.AddDays(f.Random.Double(0, statementconfig.TransactionDateInterval));
+                    if (lastDate.Date > statementconfig.EndDate)
+                    {
+                        lastDate = statementconfig.EndDate;
+                    }
+                    return lastDate;
+                })
                 .RuleFor(x => x.AccountNumber, commonFields.AccountNumber)
                 .RuleFor(x => x.SortCode, f => commonFields.SortCode)
                 .RuleFor(x => x.TransactionDescription, f => f.Lorem.Sentence(3))
@@ -54,7 +63,7 @@ namespace BankStatementDataGenerator
                     else
                     {
                         // If it is not a debit transaction then it must definitely be a credit hence not calling OrNull 
-                        var creditAmount = (decimal?)f.Random.Decimal(1, 100);
+                        var creditAmount = f.Random.Decimal(1, 100);
                         x.DebitAmount = null;
                         x.CreditAmount = creditAmount;
 
@@ -74,7 +83,6 @@ namespace BankStatementDataGenerator
 
             Console.Read();
         }
-
 
         static void DisplayStatementLines(List<BankStatementLine> statementLines)
         {
