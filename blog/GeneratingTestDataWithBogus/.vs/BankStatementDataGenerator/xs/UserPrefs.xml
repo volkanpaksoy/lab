@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{993E6602-7735-4FE5-89D7-8CDC41788E5B}|Default">
+  <MonoDevelop.Ide.ItemProperties.BankStatementDataGenerator PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BankStatementDataGenerator/Program.cs">
+    <Files>
+      <File FileName="BankStatementDataGenerator/Program.cs" Line="89" Column="79" />
+      <File FileName="BankStatementImport.Core/BankStatementLine.cs" Line="9" Column="52" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BankStatementDataGenerator" expanded="True">
+            <Node name="BankStatementDataGenerator" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+            <Node name="BankStatementImport.Core" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>BankStatementDataGenerator.csproj</String>
+    <String>../BankStatementImport.Core/BankStatementImport.Core.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
