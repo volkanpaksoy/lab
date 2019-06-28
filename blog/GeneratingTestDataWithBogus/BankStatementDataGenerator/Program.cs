@@ -82,7 +82,7 @@ namespace BankStatementDataGenerator
                 });
 
 
-            var statementLines = fakeTransactions.GenerateBetween(10, 10);
+            var statementLines = fakeTransactions.GenerateBetween(10, 20);
 
             DisplayStatementLines(statementLines);
 
