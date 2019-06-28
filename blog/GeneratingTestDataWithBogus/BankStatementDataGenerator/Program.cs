@@ -32,6 +32,7 @@ namespace BankStatementDataGenerator
                 .Generate();
 
             var fakeTransactions = new Faker<BankStatementLine>()
+                .StrictMode(true)
                 .RuleFor(x => x.TransactionDate, f =>
                 {
                     lastDate = lastDate.AddDays(f.Random.Double(0, statementconfig.TransactionDateInterval));
@@ -44,38 +45,42 @@ namespace BankStatementDataGenerator
                 .RuleFor(x => x.AccountNumber, commonFields.AccountNumber)
                 .RuleFor(x => x.SortCode, f => commonFields.SortCode)
                 .RuleFor(x => x.TransactionDescription, f => f.Lorem.Sentence(3))
-                .Rules((f, x) =>
+                .RuleFor(x => x.DebitAmount, f =>
                 {
-                    var debitAmount = (decimal?)f.Random.Decimal(1, 100).OrNull(f, 1.0f - statementconfig.DebitTransactionRatio);
-                    if (debitAmount.HasValue) // Is it a debit transaction?
+                    return (decimal?)f.Random.Decimal(1, 100).OrNull(f, 1.0f - statementconfig.DebitTransactionRatio);
+                })
+                .RuleFor(x => x.CreditAmount, (f, x) =>
+                {
+                    return x.IsCredit() ? (decimal?)f.Random.Decimal(1, 100) : null;
+                })
+                .RuleFor(x => x.TransactionType, (f, x) =>
+                {
+                    if (x.IsCredit())
                     {
-                        // We cannot have both debit and credit values in the same line
-                        x.CreditAmount = null;
-                        x.DebitAmount = debitAmount.Value;
-
-                        // Adjust the total balance
-                        balance -= x.DebitAmount.Value;
-
-                        x.TransactionType = f.PickRandom(TransactionType.AllTransactionTypes
-                            .Where(tt => tt.Direction == TransactionDirection.Debit || tt.Direction == TransactionDirection.DebitOrCredit)
-                            .Select(tt => tt.Code));
+                        return RandomTxCode(TransactionDirection.Credit); ;
                     }
                     else
                     {
-                        // If it is not a debit transaction then it must definitely be a credit hence not calling OrNull 
-                        var creditAmount = f.Random.Decimal(1, 100);
-                        x.DebitAmount = null;
-                        x.CreditAmount = creditAmount;
-
-                        balance += x.CreditAmount.Value;
-
-                        x.TransactionType = f.PickRandom(TransactionType.AllTransactionTypes
-                            .Where(tt => tt.Direction == TransactionDirection.Credit || tt.Direction == TransactionDirection.DebitOrCredit)
-                            .Select(tt => tt.Code));
+                        return RandomTxCode(TransactionDirection.Debit);
                     }
 
-                    x.Balance = balance;
+                    string RandomTxCode(TransactionDirection direction)
+                    {
+                        return f.PickRandom(TransactionType.AllTransactionTypes
+                            .Where(tt => tt.Direction == direction || tt.Direction == TransactionDirection.DebitOrCredit)
+                            .Select(tt => tt.Code));
+                        }
+                })
+                .RuleFor(x => x.Balance, (f, x) =>
+                {
+                    if (x.IsCredit())
+                        balance += x.CreditAmount.Value;
+                    else
+                        balance -= x.DebitAmount.Value;
+
+                    return balance;
                 });
+
 
             var statementLines = fakeTransactions.GenerateBetween(10, 10);
 
