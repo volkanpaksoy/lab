@@ -1,20 +1,19 @@
 ﻿<Properties StartupConfiguration="{993E6602-7735-4FE5-89D7-8CDC41788E5B}|Default">
   <MonoDevelop.Ide.ItemProperties.BankStatementDataGenerator PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BankStatementDataGenerator/Extensions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BankStatementImport.Core/BankStatementLine.cs">
     <Files>
-      <File FileName="BankStatementDataGenerator/Program.cs" Line="87" Column="1" />
-      <File FileName="BankStatementImport.Core/BankStatementLine.cs" />
+      <File FileName="BankStatementDataGenerator/Program.cs" Line="39" Column="65" />
+      <File FileName="BankStatementImport.Core/BankStatementLine.cs" Line="12" Column="46" />
       <File FileName="BankStatementImport.Core/TransactionType.cs" />
-      <File FileName="BankStatementDataGenerator/Extensions.cs" Line="16" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BankStatementDataGenerator" expanded="True">
-            <Node name="BankStatementDataGenerator" expanded="True">
-              <Node name="Extensions.cs" selected="True" />
+            <Node name="BankStatementDataGenerator" expanded="True" />
+            <Node name="BankStatementImport.Core" expanded="True">
+              <Node name="BankStatementLine.cs" selected="True" />
             </Node>
-            <Node name="BankStatementImport.Core" expanded="True" />
           </Node>
         </State>
       </Pad>

@@ -14,4 +14,17 @@ namespace BankStatementImport.Core
         public decimal? CreditAmount { get; set; }
         public decimal Balance { get; set; }
     }
+
+    public static class Extensions
+    {
+        public static bool IsCredit(this BankStatementLine bsl)
+        {
+            return bsl.DebitAmount is null;
+        }
+
+        public static bool IsDebit(this BankStatementLine bsl)
+        {
+            return !IsCredit(bsl);
+        }
+    }
 }

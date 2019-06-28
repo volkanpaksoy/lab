@@ -95,7 +95,7 @@ namespace BankStatementDataGenerator
             
             foreach (var line in statementLines)
             {
-                table.AddRow(line.TransactionDate,
+                table.AddRow(line.TransactionDate.ToString("dd/MM/yyyy"),
                     line.TransactionType,
                     line.SortCode,
                     line.AccountNumber,
