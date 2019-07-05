@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticSearchWorkout.ConsoleApp", "ElasticSearchWorkout.ConsoleApp\ElasticSearchWorkout.ConsoleApp.csproj", "{D1F30C5D-8E7D-4C14-9E39-997164F3DF8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticSearchWorkout.TestDataGenerator", "TestDataGenerator\ElasticSearchWorkout.TestDataGenerator.csproj", "{76AAAAB0-BD5C-46E0-977A-38B447F06198}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1F30C5D-8E7D-4C14-9E39-997164F3DF8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1F30C5D-8E7D-4C14-9E39-997164F3DF8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1F30C5D-8E7D-4C14-9E39-997164F3DF8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1F30C5D-8E7D-4C14-9E39-997164F3DF8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76AAAAB0-BD5C-46E0-977A-38B447F06198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76AAAAB0-BD5C-46E0-977A-38B447F06198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76AAAAB0-BD5C-46E0-977A-38B447F06198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76AAAAB0-BD5C-46E0-977A-38B447F06198}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75BCA8B6-C2C4-47A8-8DBA-CA9886B29028}
+	EndGlobalSection
+EndGlobal

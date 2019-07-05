@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="27.0.1" />
+    <PackageReference Include="ConsoleTables" Version="2.3.0" />
+  </ItemGroup>
+
+</Project>
