@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Linq;
-using System.Globalization;
-using BankStatementImport.Core;
 using Bogus;
 using Bogus.Extensions;
 using Bogus.Extensions.UnitedKingdom;
 using System.Collections.Generic;
-using ConsoleTables;
 
-namespace BankStatementDataGenerator
+namespace ElasticSearchWorkout.TestDataGenerator
 {
     public class TestDataGenerator
     {

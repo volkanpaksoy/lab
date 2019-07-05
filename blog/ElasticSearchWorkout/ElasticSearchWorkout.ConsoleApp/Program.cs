@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Globalization;
-using BankStatementDataGenerator;
-using BankStatementImport.Core;
 using ConsoleTables;
 using Nest;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using ElasticSearchWorkout.TestDataGenerator;
+using System.Globalization;
 
 namespace ElasticSearchWorkout.ConsoleApp
 {
@@ -49,44 +48,44 @@ namespace ElasticSearchWorkout.ConsoleApp
                 #endregion
 
                 #region Section 03: Index many documents
-                //var dataGen = new TestDataGenerator();
-                //var statementConfig = new
-                //{
-                //    StartDate = DateTime.ParseExact("20180101", "yyyyMMdd", CultureInfo.InvariantCulture),
-                //    EndDate = DateTime.ParseExact("20191231", "yyyyMMdd", CultureInfo.InvariantCulture),
-                //    OpeningBalance = 500.00m,
-                //    DebitTransactionRatio = 0.9f,
-                //    TransactionDateInterval = 3,
-                //    NumberOfStatementLines = 5000
-                //};
-                //var testData = dataGen.Generate(statementConfig.StartDate, statementConfig.EndDate, statementConfig.OpeningBalance, statementConfig.DebitTransactionRatio, statementConfig.TransactionDateInterval, statementConfig.NumberOfStatementLines);
+                var dataGen = new TestDataGenerator.TestDataGenerator();
+                var statementConfig = new
+                {
+                    StartDate = DateTime.ParseExact("20180101", "yyyyMMdd", CultureInfo.InvariantCulture),
+                    EndDate = DateTime.ParseExact("20191231", "yyyyMMdd", CultureInfo.InvariantCulture),
+                    OpeningBalance = 500.00m,
+                    DebitTransactionRatio = 0.9f,
+                    TransactionDateInterval = 3,
+                    NumberOfStatementLines = 5000
+                };
+                var testData = dataGen.Generate(statementConfig.StartDate, statementConfig.EndDate, statementConfig.OpeningBalance, statementConfig.DebitTransactionRatio, statementConfig.TransactionDateInterval, statementConfig.NumberOfStatementLines);
 
-                //var stopWatch = new Stopwatch();
+                var stopWatch = new Stopwatch();
 
-                //// Index with a loop - naive approach
+                // Index with a loop - naive approach
                 //stopWatch.Start();
                 //Console.WriteLine("Indexing in a loop");
                 //testData.ForEach(x => elasticClient.IndexDocument<BankStatementLine>(testData.First()));
                 //stopWatch.Stop();
                 //Console.WriteLine(stopWatch.Elapsed.ToString("mm\\:ss\\.ff"));
 
-                //// Index with BulkAll
-                //stopWatch.Reset();
-                //stopWatch.Start();
-                //Console.WriteLine("Indexing with BulkAll");
-                //var bulkAll = elasticClient.BulkAll(testData, x => x
-                //    .BackOffRetries(2)
-                //    .BackOffTime("30s")
-                //    .RefreshOnCompleted(true)
-                //    .MaxDegreeOfParallelism(4)
-                //    .Size(1000));
+                // Index with BulkAll
+                stopWatch.Reset();
+                stopWatch.Start();
+                Console.WriteLine("Indexing with BulkAll");
+                var bulkAll = elasticClient.BulkAll(testData, x => x
+                    .BackOffRetries(2)
+                    .BackOffTime("30s")
+                    .RefreshOnCompleted(true)
+                    .MaxDegreeOfParallelism(4)
+                    .Size(1000));
 
-                //bulkAll.Wait(TimeSpan.FromSeconds(60),
-                //    onNext: (b) => { Console.Write("Done"); }
-                //);
+                bulkAll.Wait(TimeSpan.FromSeconds(60),
+                    onNext: (b) => { Console.Write("Done"); }
+                );
 
-                //stopWatch.Stop();
-                //Console.WriteLine(stopWatch.Elapsed.ToString("mm\\:ss\\.ff"));
+                stopWatch.Stop();
+                Console.WriteLine(stopWatch.Elapsed.ToString("mm\\:ss\\.ff"));
                 #endregion
 
                 #region Section 04: BulkAll with subscribe
@@ -244,13 +243,13 @@ namespace ElasticSearchWorkout.ConsoleApp
                 //    .Query(q => q.QueryString(qs => qs.Query("*")))
                 //);
 
-               // elasticClient.Delete<BankStatementLine>()
+                // elasticClient.Delete<BankStatementLine>()
                 #endregion
 
 
                 #region Section 08: Update
 
-            //    elasticClient.Update<BankStatementLine>()
+                //    elasticClient.Update<BankStatementLine>()
                 #endregion
 
                 Console.WriteLine("Completed");

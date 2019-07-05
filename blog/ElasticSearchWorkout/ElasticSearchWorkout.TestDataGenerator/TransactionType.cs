@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BankStatementImport.Core
+namespace ElasticSearchWorkout.TestDataGenerator
 {
     public enum TransactionDirection
     {

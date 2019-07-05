@@ -7,10 +7,10 @@
 
   <ItemGroup>
     <PackageReference Include="NEST" Version="7.0.0" />
+    <PackageReference Include="ConsoleTables" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TestDataGenerator\ElasticSearchWorkout.TestDataGenerator.csproj" />
+    <ProjectReference Include="..\ElasticSearchWorkout.TestDataGenerator\ElasticSearchWorkout.TestDataGenerator.csproj" />
   </ItemGroup>
-
 </Project>

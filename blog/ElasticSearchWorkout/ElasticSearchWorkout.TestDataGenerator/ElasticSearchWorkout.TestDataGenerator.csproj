@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="Bogus" Version="27.0.1" />
-    <PackageReference Include="ConsoleTables" Version="2.3.0" />
   </ItemGroup>
 
 </Project>

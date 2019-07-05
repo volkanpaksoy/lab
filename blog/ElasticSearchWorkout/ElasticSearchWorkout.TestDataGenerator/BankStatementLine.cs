@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BankStatementImport.Core
+namespace ElasticSearchWorkout.TestDataGenerator
 {
     public class BankStatementLine
     {
