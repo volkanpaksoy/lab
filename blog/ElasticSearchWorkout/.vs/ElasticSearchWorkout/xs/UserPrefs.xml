@@ -2,10 +2,10 @@
   <MonoDevelop.Ide.ItemProperties.ElasticSearchWorkout.ConsoleApp PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="ElasticSearchWorkout.ConsoleApp/Program.cs">
     <Files>
-      <File FileName="ElasticSearchWorkout.ConsoleApp/Program.cs" Line="91" Column="17" />
-      <File FileName="ElasticSearchWorkout.TestDataGenerator/TestDataGenerator.cs" Line="2" Column="19" />
-      <File FileName="ElasticSearchWorkout.TestDataGenerator/BankStatementLine.cs" Line="3" Column="49" />
-      <File FileName="ElasticSearchWorkout.TestDataGenerator/TransactionType.cs" Line="4" Column="49" />
+      <File FileName="ElasticSearchWorkout.ConsoleApp/Program.cs" Line="62" Column="1" />
+      <File FileName="ElasticSearchWorkout.TestDataGenerator/TestDataGenerator.cs" />
+      <File FileName="ElasticSearchWorkout.TestDataGenerator/BankStatementLine.cs" />
+      <File FileName="ElasticSearchWorkout.TestDataGenerator/TransactionType.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
