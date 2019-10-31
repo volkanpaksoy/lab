@@ -174,3 +174,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 _incubation/domchk53/DomChk53.Lab/Secret.config
 **.dll
+.DS_Store
