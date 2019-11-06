@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+        dotnet: 2.2
+  
+  build:
+    commands:
+      - dotnet restore
+      - dotnet test
+      - dotnet publish Sample.UI.Web -c Release -o ./output

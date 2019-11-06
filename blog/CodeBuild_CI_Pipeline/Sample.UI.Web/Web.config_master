@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <sectionGroup name="system.web.webPages.razor" type="System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup, System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35">
+      <section name="host" type="System.Web.WebPages.Razor.Configuration.HostSection, System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" requirePermission="false" />
+      <section name="pages" type="System.Web.WebPages.Razor.Configuration.RazorPagesSection, System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" requirePermission="false" />
+    </sectionGroup>
+    <section name="dams.configuration" type="Universal.UPM.DAMS.Web.Configuration, Universal.UPM.DAMS.Web" />
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" />
+  </configSections>
+
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0" />
+    <add key="webpages:Enabled" value="false" />
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <add key="hangfire.EnabledSsl" value="true" />
+  </appSettings>
+
+  <connectionStrings>
+     <add name="UPPM_Hangfire" connectionString="%{Hangfire_ConnectionString}" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+
+  <dams.configuration applicationName="%{ApplicationName}" enabledFeatures="%{EnabledFeatures}"
+                      apiStatusPollingInterval="%{ApiStatusPollingInterval}" blockOnApiDown="%{BlockOnApiDown}"
+                      signalRAPPServers="%{SignalRAPPServers}" apiStatusUrlScheme="%{ApiStatusUrlScheme}"
+                      requireSslForHangfireDashboard="%{RequireSslForHangfireDashboard}"
+                      hangfireQueuePollIntervalInSeconds="%{HangfireQueuePollIntervalInSeconds}"
+                      hangfireDashboardStatsPollIntervalInSeconds="%{HangfireDashboardStatsPollIntervalInSeconds}"
+                      contactsSitesFilter="%{ContactsSitesFilter}"
+                      billingEnabled="%{BillingEnabled}"
+                      externalMarketingSiteIds="%{ExternalMarketingSiteIds}">
+    <webApiEndPoints>
+      <webApiEndPoint name="commonsEndPoint" url="%{ApiUrl_Login}" displayName="Commons" showInStatusScreen="false"/>
+      <webApiEndPoint name="authenticateEndPoint" url="%{ApiUrl_Login}" displayName="Login" showInStatusScreen="true"/>
+      <webApiEndPoint name="labelsEndPoint" url="%{ApiUrl_Labels}" displayName="Labels" showInStatusScreen="true"/>
+      <webApiEndPoint name="publishersEndPoint" url="%{ApiUrl_Publishers}" displayName="Publishers" showInStatusScreen="true"/>
+      <webApiEndPoint name="sitesEndPoint" url="%{ApiUrl_Sites}" displayName="Sites" showInStatusScreen="true"/>
+      <webApiEndPoint name="tagsEndPoint" url="%{ApiUrl_Tags}" displayName="Tags" showInStatusScreen="true"/>
+      <webApiEndPoint name="usersEndPoint" url="%{ApiUrl_Users}" displayName="Users" showInStatusScreen="true"/>
+      <webApiEndPoint name="worksEndPoint" url="%{ApiUrl_Works}" displayName="Works" showInStatusScreen="true"/>
+      <webApiEndPoint name="ecommerceEndPoint" url="%{ApiUrl_Ecommerce}" displayName="Ecommerce" showInStatusScreen="true" />
+      <webApiEndPoint name="emailsEndPoint" url="%{ApiUrl_Email}" displayName="EmailService" showInStatusScreen="false"/>
+      <webApiEndPoint name="labelIngestionEndPoint" url="%{ApiUrl_LabelIngestion}" displayName="LabelIngestion" showInStatusScreen="false" />
+    </webApiEndPoints>
+    <liveLinks>
+      <liveLink name="tagsLiveLink" urlPattern="http://{0}/#!/results.aspx?attributeList={1}"></liveLink>
+      <liveLink name="albumsLiveLink" urlPattern="http://{0}/#!/browse/browsed-results.aspx?SelectedCDId={1}"></liveLink>
+      <liveLink name="albumsLiveLinkV2" urlPattern="{0}/{1}/albums/{2}/{3}"></liveLink>
+    </liveLinks>
+    <browseCategories>
+      <browseCategory name="categoryA" categoryId="21" categoryName="Music Styles" filterOn="true" maxTagLimit="3" panelSize="large" selectedCssClass="da-selected-tag-category-a" categoryClass="da-panel-category-a"/>
+      <browseCategory name="categoryB" categoryId="19" categoryName="Moods" filterOn="true" maxTagLimit="6" panelSize="large" selectedCssClass="da-selected-tag-category-b" categoryClass="da-panel-category-b"/>
+      <browseCategory name="categoryC" categoryId="20" categoryName="Music For" filterOn="true" maxTagLimit="2" panelSize="large" selectedCssClass="da-selected-tag-category-c" categoryClass="da-panel-category-c"/>
+      <browseCategory name="categoryD" categoryId="18" categoryName="Instruments" filterOn="true" maxTagLimit="6" panelSize="large" selectedCssClass="da-selected-tag-category-d" categoryClass="da-panel-category-d"/>
+      <browseCategory name="categoryE" categoryId="16" categoryName="Country List" filterOn="true" maxTagLimit="2" panelSize="medium" selectedCssClass="da-selected-tag-category-e" categoryClass="da-panel-category-e"/>
+      <browseCategory name="categoryF" categoryId="17" categoryName="Eras" filterOn="false" maxTagLimit="3" panelSize="small" selectedCssClass="da-selected-tag-category-f" categoryClass="da-panel-category-f"/>
+      <browseCategory name="categoryG" categoryId="22" categoryName="Tempos" filterOn="true" maxTagLimit="2" panelSize="small" selectedCssClass="da-selected-tag-category-g" categoryClass="da-panel-category-g"/>
+      <browseCategory name="categoryH" categoryId="23" categoryName="Well Known Tunes" maxTagLimit="3" selectedCssClass="da-selected-tag-category-h" categoryClass="da-panel-category-h"/>
+      <browseCategory name="categoryI" categoryId="24" categoryName="Style-Alikes" maxTagLimit="3" selectedCssClass="da-selected-tag-category-h" categoryClass="da-panel-category-h"/>
+      <browseCategory name="categoryJ" categoryId="25" categoryName="Collections" maxTagLimit="999" selectedCssClass="da-selected-tag-category-j" categoryClass="da-panel-category-j" />
+    </browseCategories>
+  </dams.configuration>
+
+  <log4net debug="true">
+    <appender name="RollingLogFileAppender" type="log4net.Appender.RollingFileAppender">
+      <file value="logs\log.txt" />
+      <appendToFile value="true" />
+      <rollingStyle value="Size" />
+      <maxSizeRollBackups value="10" />
+      <maximumFileSize value="10MB" />
+      <staticLogFileName value="true" />
+      <layout type="log4net.Layout.PatternLayout">
+        <conversionPattern value="%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n" />
+      </layout>
+    </appender>
+    <root>
+      <level value="ERROR" />
+      <appender-ref ref="RollingLogFileAppender" />
+    </root>
+  </log4net>
+
+  <system.web>
+    <compilation targetFramework="4.5.1" />
+    <httpRuntime targetFramework="4.5.1" />
+    <customErrors mode="Off"/>
+  </system.web>
+
+  <system.webServer>
+    <modules>
+      <remove name="UrlRoutingModule-4.0" />
+      <add name="UrlRoutingModule-4.0" type="System.Web.Routing.UrlRoutingModule" preCondition="" />
+    </modules>
+    <staticContent>
+      <remove fileExtension=".eot" />
+      <remove fileExtension=".otf" />
+      <remove fileExtension=".woff" />
+      <mimeMap fileExtension=".eot" mimeType="application/vnd.ms-fontobject" />
+      <mimeMap fileExtension=".otf" mimeType="font/otf" />
+      <mimeMap fileExtension=".woff" mimeType="font/x-woff" />
+    </staticContent>
+  </system.webServer>
+
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Optimization" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-1.1.0.0" newVersion="1.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-1.6.5135.21930" newVersion="1.6.5135.21930" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-5.2.2.0" newVersion="5.2.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Antlr3.Runtime" publicKeyToken="eb42632606e9261f" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-3.5.0.2" newVersion="3.5.0.2" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.Owin" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+
+  <system.web.webPages.razor>
+    <host factoryType="System.Web.WebPages.Razor.WebRazorHostFactory, System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+    <pages pageBaseType="System.Web.WebPages.WebPage">
+      <namespaces>
+        <add namespace="System.Web.Configuration" />
+        <add namespace="System.Web.Optimization" />
+        <add namespace="System.Web.Routing" />
+      </namespaces>
+    </pages>
+  </system.web.webPages.razor>
+</configuration>

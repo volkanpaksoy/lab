@@ -1,0 +1,9 @@
+version: 0.0
+os: windows
+files:
+  - source: \
+    destination: c:\website
+hooks:
+  AfterInstall:
+    - location: .\updateVariables.ps1
+      timeout: 300
