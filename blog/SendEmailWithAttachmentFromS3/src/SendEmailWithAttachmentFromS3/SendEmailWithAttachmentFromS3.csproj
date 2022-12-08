@@ -12,7 +12,7 @@
     <PackageReference Include="AWSSDK.SimpleEmail" Version="3.3.6.10" />
     <PackageReference Include="MimeKit" Version="2.0.4" />
     <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.3.1.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 
   <ItemGroup>
